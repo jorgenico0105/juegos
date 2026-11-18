@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#159E44">
+  <title>ILE · Juega y descubre</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Iconos SVG reutilizables -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-eye" viewBox="0 0 64 64"><path d="M32 14C18 14 7 24 3 32c4 8 15 18 29 18s25-10 29-18c-4-8-15-18-29-18zm0 29a11 11 0 1 1 0-22 11 11 0 0 1 0 22zm0-17a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></symbol>
+    <symbol id="i-question" viewBox="0 0 64 64"><path d="M32 4a28 28 0 1 0 0 56 28 28 0 0 0 0-56zm2 45h-6v-6h6v6zm5-19c-3 3-5 4-5 9h-6c0-7 3-9 6-12 2-2 3-3 3-6a5 5 0 0 0-10 0h-6a11 11 0 0 1 22 0c0 4-2 6-4 9z"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 64 64"><rect x="6" y="14" width="28" height="40" rx="5" transform="rotate(-12 20 34)"/><rect x="28" y="10" width="28" height="40" rx="5" transform="rotate(10 42 30)" opacity=".75"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 64 64"><path d="M54 8C30 8 12 21 12 40c0 5 1 9 4 12 4-13 13-22 26-28-11 8-19 17-22 30 3 1 7 2 10 2 20 0 27-20 24-48z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 64 64"><path d="M32 4 8 13v17c0 15 10 26 24 30 14-4 24-15 24-30V13L32 4zm-4 40L16 32l5-5 7 7 15-15 5 5-20 20z"/></symbol>
+    <symbol id="i-people" viewBox="0 0 64 64"><circle cx="21" cy="19" r="9"/><circle cx="45" cy="21" r="8"/><path d="M4 54c0-11 8-19 17-19s17 8 17 19H4zm38 0c0-7-2-12-6-16 3-2 6-3 9-3 9 0 15 8 15 19H42z"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 64 64"><path d="M8 24h48v10H8zM12 34h40v24H12z"/><path d="M29 24h6v34h-6z" fill="#FDE047"/><path d="M32 24c-4-8-14-14-18-8s8 8 18 8zm0 0c4-8 14-14 18-8s-8 8-18 8z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 64 64"><path d="M24 46 10 32l5-5 9 9 25-25 5 5z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 64 64"><path d="M18 13l14 14 14-14 5 5-14 14 14 14-5 5-14-14-14 14-5-5 14-14-14-14z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 64 64"><path d="M24 8l-6 6 18 18-18 18 6 6 24-24z"/></symbol>
+    <symbol id="i-back" viewBox="0 0 64 64"><path d="M40 8l6 6-18 18 18 18-6 6-24-24z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 64 64"><path d="M18 6h28v6h10v6c0 9-6 15-13 16-2 5-5 8-8 9v7h9v8H20v-8h9v-7c-3-1-6-4-8-9-7-1-13-7-13-16v-6h10V6zm-4 12c0 4 2 8 5 9-1-3-1-6-1-9h-4zm32 0c0 3 0 6-1 9 3-1 5-5 5-9h-4z"/></symbol>
+  </defs>
+</svg>
+
+<div id="stage">
+
+  <!-- ===================== INICIO ===================== -->
+  <section class="screen active" id="s-home">
+    <header class="home-hero">
+      <div class="logo logo-lg" id="home-logo"><span>ILE</span></div>
+      <h1>¡Juega y descubre<br>con ILE!</h1>
+      <p class="hero-sub">La calidad detrás del sabor</p>
+    </header>
+
+    <div class="home-games">
+      <button type="button" class="game-card gc-green" data-go="tour">
+        <span class="gc-icon"><svg><use xlink:href="#i-eye"/></svg></span>
+        <span class="gc-text">
+          <span class="gc-num">Juego 1</span>
+          <span class="gc-title">Conoce ILE</span>
+          <span class="gc-desc">Nuestro compromiso con la calidad</span>
+        </span>
+        <span class="gc-arrow"><svg><use xlink:href="#i-chev"/></svg></span>
+      </button>
+
+      <button type="button" class="game-card gc-orange" data-go="trivia">
+        <span class="gc-icon"><svg><use xlink:href="#i-question"/></svg></span>
+        <span class="gc-text">
+          <span class="gc-num">Juego 2</span>
+          <span class="gc-title">Trivia ILE</span>
+          <span class="gc-desc">Responde y gana un detalle ILE</span>
+        </span>
+        <span class="gc-arrow"><svg><use xlink:href="#i-chev"/></svg></span>
+      </button>
+
+      <button type="button" class="game-card gc-red" data-go="memory">
+        <span class="gc-icon"><svg><use xlink:href="#i-cards"/></svg></span>
+        <span class="gc-text">
+          <span class="gc-num">Juego 3</span>
+          <span class="gc-title">Memoria ILE</span>
+          <span class="gc-desc">Encuentra los pares de productos</span>
+        </span>
+        <span class="gc-arrow"><svg><use xlink:href="#i-chev"/></svg></span>
+      </button>
+    </div>
+
+    <div class="home-products" id="home-products"></div>
+
+    <footer class="home-foot">
+      <p class="tap-hint">Toca un juego para comenzar</p>
+      <p class="clas-line">Calidad <i>·</i> Legalidad <i>·</i> Autenticidad <i>·</i> Seguridad</p>
+    </footer>
+  </section>
+
+  <!-- ===================== JUEGO 1: CONOCE ILE ===================== -->
+  <section class="screen" id="s-tour">
+    <header class="bar">
+      <button type="button" class="btn-back" data-go="home"><svg><use xlink:href="#i-back"/></svg>Inicio</button>
+      <span class="bar-title">Conoce ILE</span>
+      <div class="logo logo-sm"><span>ILE</span></div>
+    </header>
+
+    <div class="tour-progress"><span id="tour-progress"></span></div>
+    <div class="tour-slides" id="tour-slides"></div>
+
+    <nav class="tour-nav">
+      <button type="button" class="btn-round" id="tour-prev" aria-label="Anterior"><svg><use xlink:href="#i-back"/></svg></button>
+      <div class="tour-dots" id="tour-dots"></div>
+      <button type="button" class="btn-round" id="tour-next" aria-label="Siguiente"><svg><use xlink:href="#i-chev"/></svg></button>
+    </nav>
+  </section>
+
+  <!-- ===================== JUEGO 2: TRIVIA ===================== -->
+  <section class="screen" id="s-trivia">
+    <header class="bar">
+      <button type="button" class="btn-back" data-go="home"><svg><use xlink:href="#i-back"/></svg>Inicio</button>
+      <span class="bar-title">Trivia ILE</span>
+      <div class="logo logo-sm"><span>ILE</span></div>
+    </header>
+
+    <!-- Paso 1: Participar -->
+    <div class="t-step" id="t-intro">
+      <div class="big-badge bb-orange"><svg><use xlink:href="#i-question"/></svg></div>
+      <h2 class="t-title">¡Participa y descubre<br>con ILE!</h2>
+      <p class="t-lead">Responde una pregunta sobre calidad e inocuidad y retira tu detalle ILE.</p>
+      <button type="button" class="btn-cta" id="t-start">Participar</button>
+    </div>
+
+    <!-- Paso 2 y 3: Pregunta + respuesta -->
+    <div class="t-step" id="t-question">
+      <span class="pill">Pregunta</span>
+      <h2 class="q-text" id="q-text"></h2>
+      <div class="q-options">
+        <button type="button" class="q-opt" data-i="0"><span class="q-letter">A</span><span class="q-label"></span><span class="q-mark"></span></button>
+        <button type="button" class="q-opt" data-i="1"><span class="q-letter">B</span><span class="q-label"></span><span class="q-mark"></span></button>
+      </div>
+      <div class="q-feedback" id="q-feedback">
+        <p class="fb-title" id="fb-title"></p>
+        <p class="fb-msg" id="fb-msg"></p>
+        <div class="fb-actions">
+          <button type="button" class="btn-cta btn-cta-sm" id="t-next">Siguiente pregunta</button>
+          <button type="button" class="btn-ghost" id="t-finish">Terminar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 4: Gracias -->
+    <div class="t-step" id="t-thanks">
+      <div class="big-badge bb-green"><svg><use xlink:href="#i-gift"/></svg></div>
+      <h2 class="t-title">¡Gracias por<br>participar!</h2>
+      <p class="t-score" id="t-score"></p>
+      <p class="t-lead t-lead-strong">Retira tu detalle ILE<br>en nuestro stand</p>
+      <button type="button" class="btn-cta" data-go="home">Volver al inicio</button>
+      <p class="countdown" id="t-countdown"></p>
+    </div>
+  </section>
+
+  <!-- ===================== JUEGO 3: MEMORIA ===================== -->
+  <section class="screen" id="s-memory">
+    <header class="bar">
+      <button type="button" class="btn-back" data-go="home"><svg><use xlink:href="#i-back"/></svg>Inicio</button>
+      <span class="bar-title">Memoria ILE</span>
+      <div class="logo logo-sm"><span>ILE</span></div>
+    </header>
+
+    <div class="mem-stats">
+      <div class="stat"><span class="stat-v" id="m-pairs">0/6</span><span class="stat-l">Pares</span></div>
+      <div class="stat"><span class="stat-v" id="m-moves">0</span><span class="stat-l">Intentos</span></div>
+      <div class="stat"><span class="stat-v" id="m-time">0:00</span><span class="stat-l">Tiempo</span></div>
+    </div>
+    <p class="mem-hint">Toca dos cartas y encuentra los productos iguales</p>
+
+    <div class="mem-grid" id="m-grid"></div>
+    <div class="mem-toast" id="m-toast"></div>
+
+    <div class="overlay" id="m-win">
+      <div class="win-box">
+        <div class="big-badge bb-yellow"><svg><use xlink:href="#i-trophy"/></svg></div>
+        <h2 class="t-title">¡Lo lograste!</h2>
+        <p class="win-stats" id="m-win-stats"></p>
+        <p class="t-lead t-lead-strong">Retira tu detalle ILE<br>en nuestro stand</p>
+        <div class="win-actions">
+          <button type="button" class="btn-cta btn-cta-sm" id="m-again">Jugar otra vez</button>
+          <button type="button" class="btn-ghost" data-go="home">Inicio</button>
+        </div>
+        <p class="countdown" id="m-countdown"></p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
