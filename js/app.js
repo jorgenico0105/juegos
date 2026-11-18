@@ -90,7 +90,7 @@
       photos: [INST + 'origen-1.jpg', INST + 'origen-2.jpg', INST + 'origen-3.jpg', INST + 'origen-4.jpg'],
       fallback: 'icon', icon: 'i-leaf' },
     { kicker: 'Nuestros procesos', title: 'Cuidamos cada etapa para ofrecer alimentos seguros y de calidad.',
-      photos: [INST + 'procesos-1.jpg', INST + 'procesos-2.jpg', INST + 'procesos-3.jpg', INST + 'procesos-4.jpg'],
+      photos: [INST + 'procesos-2.jpg', INST + 'procesos-3.jpg', INST + 'procesos-4-empaque.jpg'],
       fallback: 'icon', icon: 'i-shield', alt: true },
     { kicker: 'Cultura de inocuidad', title: 'La inocuidad se vive en nuestras decisiones de cada día.',
       photos: [INST + 'cultura-1.jpg', INST + 'cultura-2.jpg', INST + 'cultura-3.jpg'],
